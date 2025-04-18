@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let baseUrl = import.meta.env.REACT_APP_ENV === 'development' 
+let baseUrl = import.meta.env.REACT_APP_ENV === 'production' 
   ?  import.meta.env.REACT_APP_SERVER_URL 
   : 'http://localhost:5005'
 
@@ -16,3 +16,5 @@ service.interceptors.request.use((config) => {
   }
   return config
 })
+
+export default service;

@@ -3,8 +3,6 @@ import axios from 'axios'
 const tvcToken = import.meta.env.VITE_TVC_TOKEN;
 const TVC_API_URL = '/api/exchange-rates'
 
-
-
 let headers = {
 "Authorization": `Bearer ${tvcToken}`,
 "Accept": "application/json",
@@ -26,8 +24,6 @@ export const getExchangeRates = async () => {
     })
     const res = await response.data
 
-    
-    
     return { dollarPrice: res }
 
   }catch (e){

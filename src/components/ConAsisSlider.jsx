@@ -11,22 +11,23 @@ import { useProducts } from "../hooks/useProducts";
 import { useExchangeRates } from "../hooks/useExchangeRates";
 import Card from "./Card";
 
-const CctvSlider = (categoryId) => {
+const ConAsisSlider = (categoryId) => {
 
   const { products, loading, error } = useProducts(categoryId)
   const { price } = useExchangeRates()
 
   return (
     <section className="flex flex-col items-center justify-center py-4">
-        <span className="flex justify-start w-[95%]">
-          <h2>{'Videovigilancia  >'} </h2>
-          <h2>&nbsp;{'Kits CCTV HD  >'}</h2>
-          <h2>&nbsp;{'Paquetes 4 Canales '} </h2>
-        </span>
+      <span className="flex justify-start w-[95%]">
+        <h2>{'Acceso & Asistencia  >'} </h2>
+        <h2>&nbsp;{'Control de Asistencia  >'}</h2>
+        <h2>&nbsp;{'Facial '} </h2>
+      </span>
       <div className="flex flex-row w-[95%] py-1">
         <hr className="w-[10%] border-blue-600 border-[1px]"/>
         <hr className="w-[90%] border-gray-400 border-[1px]"/>  
       </div>
+      
 
     {
         error 
@@ -76,13 +77,15 @@ const CctvSlider = (categoryId) => {
                 className='flex items-start justify-center py-0 my-0'>
 
                 <Card product={product} price={price}/>
+               
 
               </SwiperSlide>
-          ))}
+           ))}
+           
       </Swiper>
     }
       </section>
   );
 };
 
-export default CctvSlider;
+export default ConAsisSlider;

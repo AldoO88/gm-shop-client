@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import "swiper/css/navigation";
 
 import { FreeMode, Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
 
@@ -10,16 +11,23 @@ import { useProducts } from "../hooks/useProducts";
 import { useExchangeRates } from "../hooks/useExchangeRates";
 import Card from "./Card";
 
-const AlarmsSlider = () => {
+const EnergizerSlider = (categoryId) => {
 
-  const { products, loading, error } = useProducts()
+  const { products, loading, error } = useProducts(categoryId)
   const { price } = useExchangeRates()
 
   return (
-    <section className="flex flex-col items-center py-4">
-    <span className="flex justify-start w-[95%]">
-      <h2>Alarmas & Intrusión</h2>
-    </span>
+    <section className="flex flex-col items-center justify-center py-4">
+      <span className="flex justify-start w-[95%]">
+        <h2>{'Alarmas & Intrusión  >'} </h2>
+        <h2>&nbsp;{'Cercas Eléctricas  >'}</h2>
+        <h2>&nbsp;{'Energizadores '} </h2>
+      </span>
+      <div className="flex flex-row w-[95%] py-1">
+        <hr className="w-[10%] border-blue-600 border-[1px]"/>
+        <hr className="w-[90%] border-gray-400 border-[1px]"/>  
+      </div>
+      
 
     {
         error 
@@ -45,35 +53,39 @@ const AlarmsSlider = () => {
             spaceBetween: 0,
           },
         }}
+       
         slidesPerGroup={6}
         slidesPerView={6}
+        slidesPerGroupAuto={true}
         cssMode={true}
-        navigation={true}
         centeredSlides={false}
         grabCursor={true}
         freeMode={true}
         mousewheel={true}
-        keyboard={true}
+        navigation={true}
         pagination={{
           clickable: true,
           dynamicBullets: true,
         }}
         modules={[FreeMode, Pagination, Navigation, Mousewheel, Keyboard]}
-        className='flex w-[95%] h-[32rem] items-center justify-center'>
+        className='flex w-[95%] h-[32rem] items-center justify-center py-2'
+        >
 
-        { products.map((product) => (
+        {products.map((product) => (
               <SwiperSlide 
                 key={product.id}
-                className='flex items-center justify-center'>
+                className='flex items-start justify-center py-0 my-0'>
 
                 <Card product={product} price={price}/>
+               
 
               </SwiperSlide>
            ))}
+           
       </Swiper>
     }
       </section>
   );
 };
 
-export default AlarmsSlider;
+export default EnergizerSlider;

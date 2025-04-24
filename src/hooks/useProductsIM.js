@@ -26,5 +26,6 @@ export const useProductsIM = () => {
     loadProductsIM();
   }, [loadProductsIM]);
 
+  console.log(productsIM);
   return { productsIM, loading, error };
 }

@@ -3,15 +3,17 @@ import CctvSlider from "../components/CctvSlider"
 import ActiveSlider from "../components/Slider"
 import EnergizerSlider from "../components/EnergizerSlider"
 import CatalogIM from "../components/CatalogIM"
+import Categories from "../components/Categories"
 
 const Home = () => {
   return (
     <div>
       <ActiveSlider />
-      <CatalogIM />
-      {/*<CctvSlider categoryId={25}/>
+      <Categories />
+     {/* <CatalogIM /> */}
+      <CctvSlider categoryId={25}/>
       <ConAsisSlider categoryId={81}/>
-      <EnergizerSlider categoryId={125}/>*/}
+      <EnergizerSlider categoryId={125}/>
 
     </div>
   )

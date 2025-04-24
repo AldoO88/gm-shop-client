@@ -19,7 +19,7 @@ const CatalogIM = () => {
             <span className="sr-only">Loading...</span>
         </div>
         :
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap items-center justify-center">
 
         {
           productsIM.map((product) => (
